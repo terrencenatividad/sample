@@ -1,0 +1,36 @@
+.flex {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+thead {
+	background-color : lightblue;
+}
+
+.create_button {
+	background-color: white;
+	color: black;
+	width: 100px;
+	height: 30px;
+	border: 2px solid #008CBA;
+}
+
+.container-box {
+	padding: 20px;
+	border:1px solid #000;
+}
+
+.modal-content{
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid #999999;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 6px; /*<!-- HERE I AM!---*/
+	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+	background-clip: padding-box;
+	outline: none;
+}

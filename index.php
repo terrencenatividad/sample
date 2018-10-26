@@ -6,10 +6,13 @@
 				<span class="login100-form-title p-b-26">
 					Student Login
 				</span>
+				<div class="text-center error" hidden>
+
+				</div>
 
 				<div class="wrap-input100">
 					Username
-					<input class="input100" type="text" name="text" autocomplete="off">
+					<input class="input100" type="text" name="username" autocomplete="off">
 				</div>
 
 				<div class="wrap-input100">
@@ -17,7 +20,7 @@
 						<i class="zmdi zmdi-eye"></i>
 					</span>
 					Password
-					<input class="input100" type="password" name="pass" id = "pass">
+					<input class="input100" type="password" name="password" id = "pass">
 				</div>
 
 				<div class="container-login100-form-btn">
@@ -52,4 +55,17 @@
 			$('#pass').attr("type", "password");
 		}
 	});
+
+	$('form').submit(function(e) {
+		e.preventDefault();
+		$.post('ajax/login.php', $(this).serialize(), function(data) {
+			if(data == 'false') {
+				$('.error').html('Your password is incorrect').css('color', 'red').attr('hidden', false);
+			} else if(data == 'invalid') {
+				$('.error').html('Your username or password is incorrect').css('color', 'red').attr('hidden', false);
+			} else {
+				$('.error').attr('hidden', true);
+			}
+		});
+	});	
 </script>

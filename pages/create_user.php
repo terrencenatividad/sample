@@ -5,7 +5,7 @@
 			<div class="wrap-login100">
 				<form action = "">
 					<span class="login100-form-title p-b-26">
-						Registration Form
+						Create User
 					</span>
 
 					<div class="wrap-input100">
@@ -43,6 +43,20 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<ion-icon name="checkmark-circle" size = "large"></ion-icon>
+				</div>
+				<div class="modal-body">
+					<h3>Save Successfully</h3>
+					<br><br>
+				</div>
+			</div>
+		</div>
+	</div>
 	<?php include('../footer_outside.php'); ?>
 	<script>
 		$(".zmdi").on('click',function() {
@@ -56,11 +70,12 @@
 
 		$('form').submit(function(e) {
 			e.preventDefault();
-			$.post('../ajax/registration.php', $(this).serialize(), function(data) {
+			$.post('../ajax/create_user.php', $(this).serialize(), function(data) {
 				if(data) {
+					$('#myModal').modal('show');
 					setTimeout(function() {
 						window.location = data;
-					}, 100);
+					}, 1000);
 				}
 			});
 		});
